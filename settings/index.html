@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+    <head>
+
+    </head>
+    <body>
+
+        <h1 data-i18n="settings.page.title"></h1>
+		<p data-i18n="settings.page.description"></p>
+		<p id="error" style="color: red;"></p>
+		<p id="success" style="color: #5fd225;"></p>
+
+        <fieldset>
+			<legend data-i18n="settings.controls.legend"></legend>
+			<p data-i18n="settings.controls.description">
+            <div class="field row">
+				<label for="BibleTranslation" data-i18n="settings.controls.label"></label>
+                <select onchange="selected()" name="BibleTranslation" id="BibleTranslation">
+					<option value="nbv" selected>De Nieuwe Bijbelvertaling</option>
+					<option value="nbg">NBG-vertaling 1951</option>
+					<option value="statenvertaling">Statenvertaling</option>
+					<option value="willibrord">Willibrordvertaling</option>
+					<option value="hsv">Herziene Statenvertaling</option>
+					<option value="naardense">Naardense Bijbel</option>
+					<option value="bgt">Bijbel in gewone taal</option>
+				</select
+            </div>
+        </fieldset>
+
+		<button class="right" id="saver" onclick="save()" data-i18n="settings.controls.save"></button>
+
+        <script type="text/javascript">
+        function onHomeyReady(){
+			Homey.get('BibleTranslation', function(err, data) {
+				document.getElementById('BibleTranslation').value = data;
+			});
+            Homey.ready()
+        }
+
+        function save() {
+			success.innerHTML = __('settings.success');
+			error.innerHTML = "";
+			
+			var button = document.getElementById('saver');
+			button.disabled = true;
+			var newsBlock = document.getElementById('BibleTranslation');
+			newsBlock.disabled = true;
+			
+			Homey.set('BibleTranslation', document.getElementById('BibleTranslation').value);
+
+			setTimeout(function() {
+				button.disabled = false;
+				newsBlock.disabled = false;
+				
+			}, 3500);
+            
+        }
+		function selected(){
+			success.innerHTML = __("");
+		}
+		
+        </script>
+
+    </body>
+</html>

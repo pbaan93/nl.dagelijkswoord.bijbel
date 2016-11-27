@@ -1,0 +1,19 @@
+{
+	"settings": {
+			"page":
+			{
+				"title": "Dagelijks Woord (English not yet supported!)",
+				"description": "On this page you can adjust the settings of the Dagelijks Woord app."
+			},
+			"controls": {
+				"legend": "Settings",
+				"description": "What Bible translation should Homey use when triggered by a speach command?",
+				"label": "Translation:",
+				"save": "Save"
+			},
+			"success": "Changes saved",
+			"error": {
+				"error": "ERROR"
+			}
+		}
+}

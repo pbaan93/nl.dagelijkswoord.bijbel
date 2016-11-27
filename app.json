@@ -1,0 +1,103 @@
+{
+    "id": "nl.dagelijkswoord.bijbel",
+    "name": {
+        "en": "Bible verse of the day",
+		"nl": "Dagelijks Woord"
+    },
+    "version": "0.0.7",
+    "compatibility": ">=0.8.29",
+    "author": {
+        "name": "Peter Baan",
+        "email": "peterbaan93@gmail.com"
+    },
+    "category": "internet",
+    "images": {
+    "large": "./assets/images/large.jpg",
+    "small": "./assets/images/small.jpg"
+  	},
+	"flow": {
+		"triggers": [
+	        {
+	            "id": "newDW",
+	            "title": {
+	                "en": "A new verse is available",
+	                "nl": "Een nieuw vers is beschikbaar"
+	            },
+	            "tokens": [
+	                {
+	                    "name": "text",
+	                    "title": {
+	                        "en": "text",
+	                        "nl": "text"
+	                    },
+	                    "example": {
+	                        "en": "",
+	                        "nl": "Mijn plan met jullie staat vast – spreekt de HEER. Ik heb jullie geluk voor ogen, niet jullie ongeluk: ik zal je een hoopvolle toekomst geven."
+	                    }
+	                },
+	                {
+	                    "name": "verse",
+	                    "title": {
+	                        "en": "verse",
+	                        "nl": "vers"
+	                    },
+	                    "example": {
+	                        "en": "",
+	                        "nl": "Jeremia 29:11"
+	                    }
+	                }
+	            ]
+	        }
+	    ],
+		"actions": [{
+			"id": "readDW",
+			"title": {
+				"en": "Read Dagelijks Woord",
+				"nl": "Lees Dagelijks Woord voor"
+			},
+			"args": [
+			{
+				"name": "BibleTranslation",
+				"type": "dropdown",
+				"values": [ 
+					{ "id": "nbv", "label": { "en": "De Nieuwe Bijbelvertaling", "nl": "De Nieuwe Bijbelvertaling"} } ,
+					{ "id": "nbg", "label": { "en": "NBG-vertaling 1951", "nl": "NBG-vertaling 1951"} },
+					{ "id": "statenvertaling", "label": { "en": "Statenvertaling", "nl": "Statenvertaling"} },
+					{ "id": "willibrord", "label": { "en": "Willibrordvertaling", "nl": "Willibrordvertaling"} } ,
+					{ "id": "hsv", "label": { "en": "Herziene Statenvertaling", "nl": "Herziene Statenvertaling"} },
+					{ "id": "naardense", "label": { "en": "Naardense Bijbel", "nl": "Naardense Bijbel"} },
+					{ "id": "bgt", "label": { "en": "Bijbel in gewone taal", "nl": "Bijbel in gewone taal"} }
+				],
+				"placeholder": {
+				  "en": "translation",
+				  "nl": "vertaling"
+				}
+			},
+			{
+				"name": "day",
+				"type": "dropdown",
+				"values": [ { "id": "0", "label": { "en": "today", "nl": "vandaag"} } ,
+				{ "id": "1", "label": { "en": "yesterday", "nl": "gisteren"} },
+				{ "id": "2", "label": { "en": "day before yesterday", "nl": "eergisteren"} }],
+				"placeholder": {
+				  "en": "day",
+				  "nl": "dag"
+				}
+			}
+			]
+		}]
+	},
+	"permissions": ["homey:manager:speech-input", "homey:manager:speech-output"],
+	"description": {
+		"nl": "Deze app leest het Bijbelvers van de dag aan je voor.",
+		"en": "This app reads you the Bible verse of the day. (English not supported yet!)"
+	},
+	"speech": [{
+		"id": "bibleVerse",
+		"importance": 0.8,
+		"triggers": {
+			"nl": ["bijbelvers van vandaag", "bijbelvers van de dag", "vers van vandaag", "vers van de dag", "dagelijks woord"],
+			"en": []
+		}
+	}]
+}

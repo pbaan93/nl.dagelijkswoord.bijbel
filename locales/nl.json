@@ -1,0 +1,18 @@
+{
+	"settings": {
+			"page": {
+				"title": "Dagelijks Woord",
+				"description": "Op deze pagina zijn de instellingen van de Dagelijks Woord app aan te passen."
+			},
+			"controls": {
+				"legend": "Instellingen",
+				"description": "Welke vertaling moet homey aan je voorlezen wanneer getriggerd door een spraak commando?",
+				"label": "Vertaling:",
+				"save": "Opslaan"
+			},
+			"success": "Wijzigingen opgeslagen",
+			"error": {
+				"error": "Fout"
+			}
+		}
+}
