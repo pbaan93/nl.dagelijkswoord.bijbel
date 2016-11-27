@@ -7,7 +7,7 @@ function init() {
     Homey.log("BibleTranslation: bgt");
 
     var DW;//contains the vers of the day
-    var DWready;//true = up to date (api call succeeded)
+    var DWready = false;//set to true when first api request succeeded
     var DWts;//timestamp, to keep track if it is a new one
 
     var http = require('http');
@@ -58,7 +58,6 @@ function init() {
                 });
         }).on('error', function (e) {
             Homey.log("API call error: " + e.message);
-            DWready = false;
         });
     return true;
     }
@@ -95,7 +94,7 @@ function init() {
     //     }
     //     else
     //     {
-            Homey.manager('cron').registerTask('DWUpdate', '0 * * * *', 'x', function(err, task)
+            Homey.manager('cron').registerTask('DWUpdate', '0 1 * * *', 'x', function(err, task)
             {
                 if(err)
                 {
@@ -110,7 +109,7 @@ function init() {
     // });
 
 
-    //triggered every hour
+    //update DW at 1 AM
     Homey.manager('cron').on('DWUpdate', function (varx){
         //Homey.log("Cron fired: update DW");
         getDW();//update DW
