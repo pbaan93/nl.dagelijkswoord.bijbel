@@ -4,17 +4,25 @@
         "en": "Bible verse of the day",
 		"nl": "Dagelijks Woord"
     },
-    "version": "0.0.7",
+    "version": "0.1.0",
     "compatibility": ">=0.8.29",
     "author": {
         "name": "Peter Baan",
-        "email": "peterbaan93@gmail.com"
+        "email": "peterbaan93@gmail.com",
+        "website": "https://github.com/pbaan93"
     },
     "category": "internet",
     "images": {
     "large": "./assets/images/large.jpg",
     "small": "./assets/images/small.jpg"
   	},
+  	"contributors": {
+		"developers": [{
+			"name": "Marco van 't Klooster",
+			"email": "info@marcovantklooster.nl",
+			"website": "http://www.marcovantklooster.nl"
+		}]
+	},
 	"flow": {
 		"triggers": [
 	        {
