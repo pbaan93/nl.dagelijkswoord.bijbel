@@ -7,7 +7,7 @@
 			},
 			"controls": {
 				"legend": "Settings",
-				"description": "What Bible translation should Homey use when triggered by a speach command?",
+				"description": "What Bible translation should Homey use when triggered by a speech command?",
 				"label": "Translation:",
 				"save": "Save"
 			},
